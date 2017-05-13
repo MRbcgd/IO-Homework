@@ -87,7 +87,9 @@ router.get('/', function(req, res, next) {//라우터 연동 테스트
           n_tx : importedJSON.n_tx,
           avg_value : avg_value,
           avg_fee : avg_fee,
-          avg_size : avg_size
+          avg_size : avg_size,
+          inoutput : req.query.inoutput,
+          inout_results : inout_results
         });
       } else {//Wrong Block Hash
         console.log('ERROR : Wrong Block Hash!');

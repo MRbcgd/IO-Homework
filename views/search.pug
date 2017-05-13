@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  form(action='search' method='POST').form-signin
+  form(action='/search' method='POST').form-signin
     h3.form-signin-heading Argument1
 
     //- data : search_blockhash
@@ -14,5 +14,22 @@ block content
     +radio('Output','inoutput','output')
 
     button.btn.btn-lg.btn-primary.btn-block(type='submit') Search
+    br
 
-  block results
+  if(blockhash)
+    legend 해당 블록의 해쉬 값
+    p #{blockhash}
+    legend 이전 블록의 해쉬 값
+    p #{prev_block}
+    legend 트랜잭션 수
+    p #{n_tx}
+    legend 평균 트랜잭션 값
+    p #{avg_value}
+    legend 평균 트랜잭션 수수료
+    p #{avg_fee}
+    legend 평균 트랜잭션 크기
+    p #{avg_size}
+    legend input or output
+    p #{inoutput}
+    legend #{inoutput} 출력 값
+    #{inout_results}
