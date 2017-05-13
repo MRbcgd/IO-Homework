@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "blockchain.info": "^2.6.0",
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
@@ -13,6 +14,7 @@
     "morgan": "~1.7.0",
     "pug": "^2.0.0-rc.1",
     "pug-bootstrap": "0.0.15",
+    "request": "^2.81.0",
     "serve-favicon": "~2.3.2"
   }
 }
