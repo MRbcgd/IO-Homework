@@ -1,6 +1,16 @@
 extends layout
 
 block content
-  div(align="center")
-    h1= title
-    p Welcome to #{title}
+  form(action='search' method='POST').form-signin
+    h3.form-signin-heading Argument1
+
+    //- data : search_blockhash
+    input#inputEmail.form-control(type='text', placeholder='Block Hash', required='', autofocus='' name='search_blockhash')
+
+    h3.form-signin-heading Argument2
+
+    //- data : inoutput /////// text, name, value, check
+    +radio('Input','inoutput','input','checked')
+    +radio('Output','inoutput','output')
+
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') Search
