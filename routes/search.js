@@ -6,8 +6,18 @@ var request = require('request');//find json data, use url
 
 /* GET home page. */
 router.get('/', function(req, res, next) {//라우터 연동 테스트
-  res.render('search');
+  if( Object.keys(req.query).length === 0 ){
+    res.render('search');
+  } else if( req.query.argument1 && ( req.query.argument2 === 'input' || req.query.argument2 === 'output' )){
+    console.log(req.query);
+  } else{
+    res.redirect('/');
+  }
 });
+
+// router.get('/', function(req, res, next){
+//
+// });
 
 router.post('/', function(req, res, next){
   var search_blockhash = req.body.search_blockhash;
@@ -21,7 +31,7 @@ router.post('/', function(req, res, next){
     if (!err && response.statusCode == 200) {
        var importedJSON = JSON.parse(body);
 
-       res.redirect('/search/argument1='+search_blockhash+'&argument2='+inoutput);
+       res.redirect('/search/?argument1='+search_blockhash+'&argument2='+inoutput);
     } else {//Wrong Block Hash
       console.log('ERROR : Wrong Block Hash!');
       res.redirect('/search');
